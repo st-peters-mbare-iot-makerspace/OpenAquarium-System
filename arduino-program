@@ -1,0 +1,106 @@
+#include "OpenAquarium.h"
+#include "Wire.h"
+
+#define point_1_cond 40000   // Write here your EC calibration value of the solution 1 in µS/cm
+#define point_1_cal 40       // Write here your EC value measured in resistance with solution 1
+#define point_2_cond 10500   // Write here your EC calibration value of the solution 2 in µS/cm
+#define point_2_cal 120      // Write here your EC value measured in resistance with solution 2
+
+#define calibration_point_4 2221  //Write here your measured value in mV of pH 4
+#define calibration_point_7 2104  //Write here your measured value in mV of pH 7
+#define calibration_point_10 2031 //Write here your measured value in mV of pH 10
+
+int waterLevel = 0;
+String values;
+
+int mvpH;
+
+char charValueFloat[10];
+float temperature;
+float resistanceEC;
+float pH;
+
+String tempString;
+String ECString;
+String pHString;
+
+DateTime now;
+
+void phSetup() {
+  OpenAquarium.calibratepH(calibration_point_4, calibration_point_7, calibration_point_10);
+}
+
+void ECSetup() {
+  OpenAquarium.calibrateEC(point_1_cond, point_1_cal, point_2_cond, point_2_cal);
+}
+
+void timeSetup() {
+  now = OpenAquarium.getTime();
+  //OpenAquarium.printTime(now);
+}
+
+void setup() {
+  OpenAquarium.init();   //Initialize
+  Serial.begin(112500);
+  timeSetup();
+  phSetup();
+  ECSetup();
+}
+
+void temperatureSense() {
+  temperature = OpenAquarium.readtemperature(); //Read the sensor
+}
+
+void ECSense() {
+  resistanceEC = OpenAquarium.readResistanceEC(); //EC Value in resistance
+}
+
+void phSense() {
+  mvpH = OpenAquarium.readpH(); //Value in mV of pH
+  pH = OpenAquarium.pHConversion(mvpH); //Calculate pH value
+}
+
+void waterLevelSense() {
+  OpenAquarium.waterlevel1();
+  waterLevel = OpenAquarium.readwaterlevel(1);
+}
+
+void feedFish() {
+  if ((now.hour()) == 17 && now.minute() == 04) {
+    OpenAquarium.feedfish();
+  }
+
+  if ((now.hour() - 1) == 14 && now.minute() == 26) {
+    OpenAquarium.readyforfeeding();
+  }
+
+  if ((now.hour() - 1) == 14 && now.minute() == 27) {
+    OpenAquarium.feedfish();
+  }
+
+  if ((now.hour() - 1) == 14 && now.minute() == 28) {
+    OpenAquarium.readyforfeeding();
+  }
+  if ((now.hour() - 1) == 14 && now.minute() == 29) {
+    OpenAquarium.feedfish();
+  }
+  if (now.hour() == 23 && now.minute() == 59) {
+    OpenAquarium.newday();
+  }
+
+  delay(2000); //Wait 20 seconds
+}
+void loop() {
+
+  feedFish();
+  temperatureSense();
+  ECSense();
+  phSense();
+  waterLevelSense();
+  tempString=dtostrf(temperature, 4, 4, charValueFloat);
+  pHString=dtostrf(pH, 4, 4, charValueFloat);
+  ECString=dtostrf(resistanceEC, 4, 4, charValueFloat);
+  values =  tempString+ "," + String(waterLevel) + "," + pHString + ","+ ECString+ ",arduino1";
+  Serial.println(values);
+  delay(1000);
+}
