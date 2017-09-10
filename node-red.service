@@ -12,9 +12,9 @@ SyslogIdentifier=node-red
 StandardOutput=syslog
 
 # non-root user to run as
-WorkingDirectory=/home/sammy/
-User=sammy
-Group=sammy
+WorkingDirectory=/home/pi/
+User=pi
+Group=pi
 
 [Install]
 WantedBy=multi-user.target
