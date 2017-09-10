@@ -57,3 +57,4 @@ sudo systemctl enable node-red.service
 3.5 Restart machine:
 sudo reboot
 
+4. Install node-red-node-serialport, node-red-dashboard, node-red-node-mongodb
