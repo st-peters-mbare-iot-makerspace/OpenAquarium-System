@@ -1,4 +1,4 @@
-# OpenAquarium-System
+# St Peter's Mbare Aquaponics System 1
 
 Components making up the St Peter's Mbare Aquaponics System 1:
 
