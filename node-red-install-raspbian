@@ -30,11 +30,16 @@ npm -v
 (should be 3.x)
 
 INSTALL NODE-RED
-1. Install node-red using this command
+1. Install node-pre-gyp:
+sudo npm install -g node-pre-gyp
+
+
+2. Install node-red using this command:
 sudo npm install -g --unsafe-perm node-red
 
-2. To enable node-red to start automatically
+3. To enable node-red to start automatically
 sudo systemctl enable nodered.service
 
-3.
 3. Adding Nodered to start menu(Under programming)
+3.1 Place node-red.service file into this location: /etc/systemd/system/ (This file is found in this repo)
+3.2 sudo systemctl enable/start/stop node-red
