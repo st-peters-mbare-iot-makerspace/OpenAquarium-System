@@ -1,0 +1,10 @@
+sudo apt-get install build-essential python-rpi.gpio 
+bash <(curl -sL https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/update-nodejs-and-nodered) 
+npm cache clean npm install -g --unsafe-perm node-red 
+wget https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/nodered.service -O /lib/systemd/system/nodered.service 
+wget https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/node-red-start -O /usr/bin/node-red-start 
+wget https://raw.githubusercontent.com/node-red/raspbian-deb-package/master/resources/node-red-stop -O /usr/bin/node-red-stop 
+chmod +x /usr/bin/node-red-st* 
+systemctl daemon-reload 
+systemctl enable nodered.service 
+shutdown -r now
