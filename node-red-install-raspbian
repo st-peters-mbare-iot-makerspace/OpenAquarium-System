@@ -60,12 +60,10 @@ sudo reboot
 4. Install node-red-node-serialport, node-red-dashboard, node-red-node-mongodb
 
 5. Install Arduino IDE
-Download ARM tar from arduino.cc site
-Before running install script make this change:
-In the Arduino-1.8.2/lib there is a file named arduino-arduinoide.xml file. 
-Change the "RESOURCE_NAME=cc.arduino.arduinoide" to "RESOURCE_NAME=arduino-arduinoide".
-
-Run ./install.sh 
+5.1 Download ARM version from arduino.cc site
+5.2 Move downloaded tar file to /opt/
+5.3 Move to /opt/arduino-1.8.4/
+5.4 Run ./install.sh
 
 6. Install MongoDB 
 sudo apt install mongodb-server
