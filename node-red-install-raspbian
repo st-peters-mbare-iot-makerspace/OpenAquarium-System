@@ -41,5 +41,19 @@ sudo npm install -g --unsafe-perm node-red
 sudo systemctl enable nodered.service
 
 3. Adding Nodered to start menu(Under programming)
-3.1 Place node-red.service file into this location: /etc/systemd/system/ (This file is found in this repo)
-3.2 sudo systemctl enable/start/stop node-red
+
+3.1 Place node-red.service file into this location: /lib/systemd/system/ (This file is found in this repo):
+sudo cp node-red.service /lib/systemd/system/
+
+3.2 Change permissions of the file: 
+sudo chmod 644 /lib/systemd/system/node-red.service
+
+3.2 Reload the systemctl daemon:
+sudo systemctl daemon-reload
+
+3.4 Enable node-red to automatically start at boot:
+sudo systemctl enable node-red.service
+
+3.5 Restart machine:
+sudo reboot
+
