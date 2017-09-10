@@ -13,9 +13,9 @@ Components making up the St Peter's Mbare Aquaponics System 1:
 8. Raspberry Pi 3 (Element 14, CanaKit)
 
 ## Software
-1. Arduino
-2. Node.js and npm
-3. Node-red
+1. Arduino 1.8
+2. Node.js 6 (LTS) and npm 3
+3. Node-red 16
 4. Node-red nodes: Dashboard, Serialport, mongodb
 5. Mongodb NoSQL DBMS
 
