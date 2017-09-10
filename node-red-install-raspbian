@@ -1,1 +1,40 @@
 
+INSTALLING Node.js LTS 6
+
+1. Remove old NodeJS, npm and Node-red
+
+sudo apt remove nodejs nodejs-legacy
+
+2. Download Long-Term Support (LTS) NodeJS (Currently v6) here:
+
+https://nodejs.org/dist/v6.11.3/node-v6.11.3-linux-armv7l.tar.xz
+
+3. Uncompress the downloaded NodeJS setup file using this command:
+cd Downloads
+tar xvf node-v6.11.3-linux-armv7l.tar.xz
+
+4. Copy folder contents to setup location(/usr/local/)
+
+cd node-v6.11.3-linux-armv7l
+sudo cp -R * /usr/local/
+
+5. Restart computer:
+
+sudo reboot
+
+6 Test if setup has been successful
+node -v
+(should be 6.x)
+
+npm -v
+(should be 3.x)
+
+INSTALL NODE-RED
+1. Install node-red using this command
+sudo npm install -g --unsafe-perm node-red
+
+2. To enable node-red to start automatically
+sudo systemctl enable nodered.service
+
+3.
+3. Adding Nodered to start menu(Under programming)
