@@ -18,6 +18,7 @@ Components making up the St Peter's Mbare Aquaponics System 1:
 3. Node-red 16
 4. Node-red nodes: Dashboard, Serialport, mongodb
 5. Mongodb NoSQL DBMS
+6. OpenAquarium Library(uploaded to this repo as OpenAquarium.tar.gz)
 
 ## Nodered Functions
 1. Format Data for MongoDB: scrubs the data from Arduino microcontroller, formats it and saves it in a Mongodb Database named "aquadb" within a collection named "SensorReadings"
@@ -28,6 +29,6 @@ Components making up the St Peter's Mbare Aquaponics System 1:
 3. Check Temperature: checks the most recent temperature reading. If the value is greater than 25 Degrees Celsius it will send a notification email every 15 minutes
 
 ## Important Changes
-1. Added OpenAquarium library folder to ~/sketchbook/libraries 
+1. Added uncompressed OpenAquarium Library folder to ~/sketchbook/libraries (Raspbian) or ~/Arduino/libraries(Ubuntu) 
 2. Suppressed the Water Level Serial output by commenting them out in OpenAquarium.cpp file in the OpenAquarium library.
 
