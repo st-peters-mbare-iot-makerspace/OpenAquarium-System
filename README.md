@@ -3,7 +3,7 @@
 Components making up the St Peter's Mbare Aquaponics System 1:
 
 ## Hardware
-1. Arduino (DFRobot)
+1. Arduino Uno (DFRobot)
 2. Open Aquarium Arduino Shield (Cooking Hacks)
 3. Electroconductivity Sensor (Cooking Hacks)
 4. Temperature Sensor (Cooking Hacks)
