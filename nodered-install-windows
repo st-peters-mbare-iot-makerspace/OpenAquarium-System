@@ -1,0 +1,6 @@
+Download NodeJS (prefereably the Long Term Support(LTS) version here: https://nodejs.org/en/
+Install the downloaded NodeJS on your Windows machine.
+Go to Start Menu and type "cmd" to start the Command Prompt.
+In the command Prompt type the following to install Nore-red: "npm install -g --unsafe-perm node-red"
+To start node-red just type in the Command Prompt "node-red" (Do NOT close the Command Prompt window)
+Then go to your Web Browser and type "localhost:1880" and the Node Red Inteface will be shown.
