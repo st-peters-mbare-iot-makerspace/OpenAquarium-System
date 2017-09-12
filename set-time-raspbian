@@ -1,0 +1,3 @@
+sudo systemctl disable ntp
+sudo date -s 'YYYY-MM-DD HH-MM-SS'
+sudo reboot
